@@ -1,0 +1,23 @@
+<h1>ARTICULOS</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Contenido</th>
+            <th>Acciones</th>
+        </tr>
+    </thead> 
+    <tbody>
+        <% @articles.each do |article| %>
+            <tr>
+                <td><%= article.title %></td>
+                <td><%= truncate(article.body, length: 45)  %></td>
+                <td> <%= link_to 'Mostrar', article_path(article), method: :get %> </td>
+                <td> <%= link_to 'Editar', edit_article_path(article), method: :get %> </td>
+                <td ><%= link_to 'Eliminar', article_path(article), method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+            </tr>
+        <% end %>
+    </tbody> 
+</table>
+
+<%= link_to 'Nuevo articulo', new_article_path %>

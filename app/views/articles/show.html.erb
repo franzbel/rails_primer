@@ -1,0 +1,10 @@
+<div>
+    <%= @article.title %>
+</div>
+<div>
+    <%= @article.body %>
+</div>
+
+
+<%= link_to 'Ediar', edit_article_path(@article) %> |
+<%= link_to 'Lista de articulos', articles_path %>
